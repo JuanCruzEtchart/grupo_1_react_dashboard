@@ -63,9 +63,26 @@ const productsApiController = {
         meta: {
           status: 200,
           total: series.length,
-          url: "api/product/movies",
+          url: "api/product/series",
         },
         data: series,
+      };
+      res.json(response);
+    });
+  },
+
+  lastItem: (req, res) => {
+    const id = req.params.id;
+    Product.findAll({
+      limit: 1,
+      order: [["id", "DESC"]],
+    }).then((product) => {
+      let response = {
+        meta: {
+          status: 200,
+          url: "/api/product/lastItem/",
+        },
+        data: product,
       };
       res.json(response);
     });

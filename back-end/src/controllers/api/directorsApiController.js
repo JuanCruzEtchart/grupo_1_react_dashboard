@@ -3,22 +3,22 @@ const db = require("../../database/models");
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 
-const Actor = db.Actor;
+const Director = db.Director;
 
-const actorsApiController = {
+const directorsApiController = {
   list: (req, res) => {
-    Actor.findAll().then((actors) => {
+    Director.findAll().then((director) => {
       let response = {
         meta: {
           status: 200,
-          total: actors.length,
-          url: "api/actors",
+          total: director.length,
+          url: "api/directors",
         },
-        data: actors,
+        data: director,
       };
       res.json(response);
     });
   },
 };
 
-module.exports = actorsApiController;
+module.exports = directorsApiController;
