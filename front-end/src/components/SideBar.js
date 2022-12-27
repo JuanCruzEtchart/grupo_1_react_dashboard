@@ -5,6 +5,8 @@ import GenresInDb from "./GenresInDb";
 import LastProductInDb from "./LastProductInDb";
 import ContentRowDB from "./ContentRowDB";
 import SearchMovies from "./SearchMovies";
+import SearchMoviesCinephile from "./SearchMoviesCinephile";
+
 import NotFound from "./NotFound";
 import { Link, Route, Routes } from "react-router-dom";
 
@@ -13,7 +15,7 @@ function SideBar() {
     <React.Fragment>
       {/*<!-- Sidebar -->*/}
       <ul
-        className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion"
+        className="navbar-nav bg-dark sidebar sidebar-dark accordion principalSidebar text-white"
         id="accordionSidebar"
       >
         {/*<!-- Sidebar - Brand -->*/}
@@ -22,7 +24,7 @@ function SideBar() {
           href="/"
         >
           <div className="sidebar-brand-icon">
-            <img className="w-100" src={image} alt="Digital House" />
+            <img className="w-100" src={image} alt="The Cinephile" />
           </div>
         </a>
 
@@ -44,10 +46,10 @@ function SideBar() {
         <div className="sidebar-heading">Actions</div>
 
         {/*<!-- Nav Item - Pages -->*/}
-        <li className="nav-item">
+        <li className="nav-item text-white">
           <Link className="nav-link" to="/GenresInDb">
             <i className="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
+            <span>Genres</span>
           </Link>
         </li>
 
@@ -55,7 +57,7 @@ function SideBar() {
         <li className="nav-item">
           <Link className="nav-link" to="/LastProductInDb">
             <i className="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span>
+            <span>Products</span>
           </Link>
         </li>
 
@@ -63,13 +65,13 @@ function SideBar() {
         <li className="nav-item nav-link">
           <Link className="nav-link" to="/ContentRowMovies">
             <i className="fas fa-fw fa-table"></i>
-            <span>Tables</span>
+            <span>Database data</span>
           </Link>
         </li>
 
         {/*<!-- Buscador -->*/}
         <li className="nav-item nav-link">
-          <Link className="nav-link" to="/SearchMovies">
+          <Link className="nav-link" to="/SearchMoviesCinephile">
             <i className="fas fa-search"></i>
             <span>Search a movie</span>
           </Link>
@@ -97,12 +99,15 @@ function SideBar() {
 
       {/*<!-- End Microdesafio 2 -->*/}
       <Routes>
-        <Route path="/*" element={<ContentWrapper />} />
+        <Route path="/" element={<ContentWrapper />} />
         <Route path="/GenresInDb" element={<GenresInDb />} />
         <Route path="/LastProductInDb" element={<LastProductInDb />} />
         <Route path="/ContentRowMovies" element={<ContentRowDB />} />
-        <Route path="/SearchMovies" element={<SearchMovies />} />
-        <Route path="*" component={NotFound} />
+        <Route
+          path="/SearchMoviesCinephile"
+          element={<SearchMoviesCinephile />}
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {/*<!-- End Microdesafio 2 -->*/}
     </React.Fragment>

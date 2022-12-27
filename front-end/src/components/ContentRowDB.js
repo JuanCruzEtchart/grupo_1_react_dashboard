@@ -15,7 +15,7 @@ function ContentRowDB() {
         return response.json();
       })
       .then((products) => {
-        console.log(products);
+        /* console.log(products); */
         setProducts(products.data);
       })
       .catch((error) => console.log(error));
@@ -26,9 +26,9 @@ function ContentRowDB() {
       .then((response) => {
         return response.json();
       })
-      .then((products) => {
-        console.log(products);
-        setMovies(products.data);
+      .then((movies) => {
+        /* console.log(movies); */
+        setMovies(movies.data);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -39,7 +39,7 @@ function ContentRowDB() {
         return response.json();
       })
       .then((series) => {
-        console.log(series);
+        /* console.log(series); */
         setSeries(series.data);
       })
       .catch((error) => console.log(error));
@@ -51,7 +51,7 @@ function ContentRowDB() {
         return response.json();
       })
       .then((actors) => {
-        console.log(actors);
+        /* console.log(actors); */
         setActors(actors.data);
       })
       .catch((error) => console.log(error));
@@ -63,7 +63,7 @@ function ContentRowDB() {
         return response.json();
       })
       .then((directors) => {
-        console.log(directors);
+        /* console.log(directors); */
         setDirectors(directors.data);
       })
       .catch((error) => console.log(error));
@@ -75,7 +75,7 @@ function ContentRowDB() {
         return response.json();
       })
       .then((users) => {
-        console.log(users);
+        /* console.log(users); */
         setUsers(users.data);
       })
       .catch((error) => console.log(error));
@@ -146,7 +146,7 @@ function ContentRowDB() {
   ];
 
   return (
-    <div className="row">
+    <div className="row bg-secondary">
       {cartProps.map((movie, i) => {
         return <SmallCard {...movie} key={i} />;
       })}
